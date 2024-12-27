@@ -1,0 +1,89 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Song Details</title>
+    <style type="text/css">
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 1.6rem;
+            color: #444;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            font-size: 1.2rem;
+            color: #555;
+            margin: 5px 0;
+        }
+
+        a {
+            font-size: 1rem;
+            color: #6c63ff;
+            text-decoration: none;
+            border: 1px solid #6c63ff;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        a:hover {
+            background-color: #6c63ff;
+            color: white;
+        }
+    </style>
+
+</head>
+<body>
+<header>
+    <h1 th:text="${song.title}">Song title</h1>
+</header>
+<h2 th:text="${song.title}"></h2>
+<p>Release Year: <span th:text="${song.releaseYear}"></span></p>
+<h3>Artists</h3>
+<ul>
+    <li th:each="artist : ${song.getPerformers()}" th:text="${artist.firstName + ' ' + artist.lastName}"></li>
+</ul>
+<a href="/songs">Back to songs</a>
+
+</body>
+</html>
